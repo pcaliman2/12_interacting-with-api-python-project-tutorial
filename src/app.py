@@ -17,12 +17,17 @@ auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=clien
 spotify = spotipy.Spotify(auth_manager=auth_manager)
 
 # ID del artista
-artist_id = "2TieOXUFdPe8OrB8WYgKJy"
+artist_id = "7An4yvF7hDYDolN4m5zKBp"
 
-# Obtener top tracks
+# Get the top tracks of an artist
 results = spotify.artist_top_tracks(artist_id)
+# Obtener top tracks
+#results = spotify.artist_top_tracks(artist_id)
 
-# Mostrar resultados
-#print(results)
-print(client_id)
-print(client_secret)
+CancionesT10 = []
+for track in results['tracks']:
+    CancionesT10.append({'Canciom': track['name']})
+
+CancionesFrame = pd.DataFrame(CancionesT10)
+for i in CancionesFrame['Canciom']:
+    print(i)
