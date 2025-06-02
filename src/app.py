@@ -20,7 +20,7 @@ spotify = spotipy.Spotify(auth_manager=auth_manager)
 artist_id = "2TieOXUFdPe8OrB8WYgKJy"
 
 # Obtener top tracks
-#results = spotify.artist_top_tracks(artist_id)
+results = spotify.artist_top_tracks(artist_id)
 
 # Mostrar resultados
 #print(results)
