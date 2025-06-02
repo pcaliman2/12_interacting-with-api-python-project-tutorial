@@ -5,23 +5,24 @@ from dotenv import load_dotenv
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
-# load the .env file variables
+# Cargar variables del archivo .env
 load_dotenv()
 
-# Get credential values
+# Obtener credenciales
 client_id = os.environ.get("CLIENT_ID")
 client_secret = os.environ.get("CLIENT_SECRET")
 
-
+# Autenticación
 auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
 spotify = spotipy.Spotify(auth_manager=auth_manager)
 
-#SodaEstereo: 2TieOXUFdPe8OrB8WYgKJy
+# ID del artista
 artist_id = "2TieOXUFdPe8OrB8WYgKJy"
 
-# Get the top tracks of an artist
-results = spotipy.artist_top_tracks(artist_id)
+# Obtener top tracks
+results = spotify.artist_top_tracks(artist_id)
 
+# Mostrar resultados
 print(results)
 
 
